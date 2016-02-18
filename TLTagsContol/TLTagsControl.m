@@ -83,6 +83,7 @@
     tagInputField_.delegate = self;
     tagInputField_.placeholder = @"tag";
     tagInputField_.autocorrectionType = UITextAutocorrectionTypeNo;
+    tagInputField_.returnKeyType = UIReturnKeyDone;
     
     if (_mode == TLTagsControlModeEdit) {
         [self addSubview:tagInputField_];
