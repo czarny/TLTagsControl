@@ -355,6 +355,7 @@
 
 - (void)setTags:(NSMutableArray *)tags {
     _tags = tags;
+    [self reloadTagSubviews];
 }
 
 - (void)setPlaceholder:(NSString *)tagPlaceholder {
