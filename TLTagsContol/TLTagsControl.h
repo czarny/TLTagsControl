@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, TLTagsControlMode) {
 @interface TLTagsControl : UIScrollView
 
 @property (nonatomic, strong) NSMutableArray *tags;
+@property (nonatomic, strong) UIFont *tagsFont;
 @property (nonatomic, strong) UIColor *tagsBackgroundColor;
 @property (nonatomic, strong) UIColor *tagsTextColor;
 @property (nonatomic, strong) UIColor *tagsDeleteButtonColor;

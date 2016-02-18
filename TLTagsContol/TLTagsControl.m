@@ -68,6 +68,7 @@
 
 - (void)commonInit {
     _tags = [NSMutableArray array];
+    _tagsFont = [UIFont systemFontOfSize:14];
     
     self.clipsToBounds = YES;
     self.backgroundColor = [UIColor clearColor];
@@ -80,7 +81,6 @@
     tagInputField_.layer.borderColor = [UIColor lightGrayColor].CGColor;
     tagInputField_.backgroundColor = [UIColor whiteColor];
     tagInputField_.delegate = self;
-    tagInputField_.font = [UIFont fontWithName:@"HelveticaNeue" size:14];
     tagInputField_.placeholder = @"tag";
     tagInputField_.autocorrectionType = UITextAutocorrectionTypeNo;
     
@@ -203,7 +203,7 @@
     for (NSString *tag in _tags) {
         float width = [tag boundingRectWithSize:CGSizeMake(3000,tagInputField_.frame.size.height)
                                         options:NSStringDrawingUsesLineFragmentOrigin
-                                     attributes:@{NSFontAttributeName:tagInputField_.font}
+                                     attributes:@{NSFontAttributeName:self->_tagsFont}
                                         context:nil].size.width;
         
         UIView *tagView = [[UIView alloc] initWithFrame:tagInputField_.frame];
@@ -216,7 +216,7 @@
         
         UILabel *tagLabel = [[UILabel alloc] init];
         CGRect labelFrame = tagLabel.frame;
-        tagLabel.font = tagInputField_.font;
+        tagLabel.font = self->_tagsFont;
         labelFrame.size.width = width + 16;
         labelFrame.size.height = tagInputField_.frame.size.height;
         tagLabel.text = tag;
@@ -228,7 +228,7 @@
         if (_mode == TLTagsControlModeEdit) {
             UIButton *deleteTagButton = [[UIButton alloc] initWithFrame:tagInputField_.frame];
             CGRect buttonFrame = deleteTagButton.frame;
-            [deleteTagButton.titleLabel setFont:tagInputField_.font];
+            [deleteTagButton.titleLabel setFont:self->_tagsFont];
             [deleteTagButton addTarget:self action:@selector(deleteTagButton:) forControlEvents:UIControlEventTouchUpInside];
             buttonFrame.size.width = deleteTagButton.frame.size.height;
             buttonFrame.size.height = tagInputField_.frame.size.height;
@@ -351,6 +351,11 @@
 }
 
 #pragma mark - other
+
+-(void)setTagsFont:(UIFont *)tagsFont {
+    self->_tagsFont = tagsFont;
+    tagInputField_.font = tagsFont;
+}
 
 - (void)setMode:(TLTagsControlMode)mode {
     _mode = mode;
