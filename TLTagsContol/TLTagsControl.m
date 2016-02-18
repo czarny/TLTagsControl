@@ -311,6 +311,10 @@
         textField.text = @"";
         [self addTag:tag];
     }
+    else {
+        [textField resignFirstResponder];
+        [self setContentOffset:CGPointZero animated:YES];
+    }
     
     return YES;
 }
