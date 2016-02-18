@@ -208,6 +208,8 @@
         UIView *tagView = [[UIView alloc] initWithFrame:tagInputField_.frame];
         CGRect tagFrame = tagView.frame;
         tagView.layer.cornerRadius = 5;
+        tagView.layer.borderWidth = 1.0;
+        tagView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         tagFrame.origin.y = tagInputField_.frame.origin.y;
         tagView.backgroundColor = tagBackgrounColor;
         
