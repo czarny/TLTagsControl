@@ -27,7 +27,7 @@ typedef NS_ENUM(NSUInteger, TLTagsControlMode) {
 @property (nonatomic, strong) UIColor *tagsBackgroundColor;
 @property (nonatomic, strong) UIColor *tagsTextColor;
 @property (nonatomic, strong) UIColor *tagsDeleteButtonColor;
-@property (nonatomic, strong) NSString *tagPlaceholder;
+@property (nonatomic, strong) NSAttributedString *tagPlaceholder;
 @property (nonatomic) TLTagsControlMode mode;
 
 @property (assign, nonatomic) id<TLTagsControlDelegate> tapDelegate;

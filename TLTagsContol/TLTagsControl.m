@@ -153,9 +153,8 @@
     contentSize.height = self.frame.size.height;
     
     self.contentSize = contentSize;
-    
-    tagInputField_.placeholder = (_tagPlaceholder == nil) ? @"tag" : _tagPlaceholder;
 }
+
 
 - (void)addTag:(NSString *)tag {
     for (NSString *oldTag in _tags) {
@@ -362,8 +361,9 @@
     [self reloadTagSubviews];
 }
 
-- (void)setPlaceholder:(NSString *)tagPlaceholder {
+- (void)setTagPlaceholder:(NSAttributedString *)tagPlaceholder {
     _tagPlaceholder = tagPlaceholder;
+    tagInputField_.attributedPlaceholder = tagPlaceholder;
 }
 
 - (void)gestureAction:(id)sender {
