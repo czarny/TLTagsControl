@@ -69,7 +69,9 @@
 - (void)commonInit {
     _tags = [NSMutableArray array];
     
-    self.layer.cornerRadius = 5;
+    self.clipsToBounds = YES;
+    self.backgroundColor = [UIColor clearColor];
+    self.showsHorizontalScrollIndicator = NO;
     
     tagSubviews_ = [NSMutableArray array];
     
