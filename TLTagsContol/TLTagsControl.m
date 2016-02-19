@@ -17,8 +17,6 @@
     NSMutableArray              *tagSubviews_;
 }
 
-@synthesize tapDelegate;
-
 - (instancetype)init {
     self = [super init];
     
@@ -167,6 +165,8 @@
     [_tags addObject:tag];
     [self reloadTagSubviews];
     
+    [_tagDelegate tagsControl:self didAddTag:tag];
+    
     CGSize contentSize = self.contentSize;
     CGPoint offset = self.contentOffset;
     
@@ -289,11 +289,13 @@
 
 - (void)deleteTagButton:(UIButton *)sender {
     UIView *view = sender.superview;
-    [view removeFromSuperview];
-    
     NSInteger index = [tagSubviews_ indexOfObject:view];
+    NSString *tag = _tags[index];
+
     [_tags removeObjectAtIndex:index];
     [self reloadTagSubviews];
+    
+    [_tagDelegate tagsControl:self didDeleteTag:tag];
 }
 
 - (void)tagButtonPressed:(id)sender {
@@ -378,7 +380,7 @@
 
 - (void)gestureAction:(id)sender {
     UITapGestureRecognizer *tapRecognizer = (UITapGestureRecognizer *)sender;
-    [tapDelegate tagsControl:self tappedAtIndex:tapRecognizer.view.tag];
+    [_tagDelegate tagsControl:self tappedAtIndex:tapRecognizer.view.tag];
 }
 
 @end
