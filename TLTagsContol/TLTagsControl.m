@@ -307,6 +307,10 @@
 
 #pragma mark - textfield stuff
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    [_tagDelegate tagsControlDidBeginEditing:self];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField.text.length > 0) {
         NSString *tag = textField.text;

@@ -15,6 +15,7 @@
 - (void)tagsControl:(TLTagsControl *)tagsControl tappedAtIndex:(NSInteger)index;
 - (void)tagsControl:(TLTagsControl *)tagsControl didAddTag:(NSString*)tag;
 - (void)tagsControl:(TLTagsControl *)tagsControl didDeleteTag:(NSString*)tag;
+- (void)tagsControlDidBeginEditing:(TLTagsControl *)tagsControl;
 
 @end
 
