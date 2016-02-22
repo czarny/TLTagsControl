@@ -124,10 +124,10 @@
     if (_mode == TLTagsControlModeEdit) {
         frame = tagInputField_.frame;
         frame.size.height = self.frame.size.height;
-        frame.origin.y = 0;
+        frame.origin.y = 1;
         
         if (tagSubviews_.count == 0) {
-            frame.origin.x = 7;
+            frame.origin.x = 0;
         } else {
             UIView *view = tagSubviews_.lastObject;
             frame.origin.x = view.frame.origin.x + view.frame.size.width + 4;
